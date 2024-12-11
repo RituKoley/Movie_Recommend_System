@@ -1,0 +1,58 @@
+import numpy as np
+import pandas as pd
+
+import ast
+
+pip install --upgrade pip setuptools wheel
+pip install scikit-learn
+from sklearn.feature_extraction.text import CountVectorizer
+
+import nltk
+from nltk.stem.porter import PorterStemmer
+from sklearn.metrics.pairwise import cosine_similarity
+
+pip install ipywidgets
+
+from IPython.display import display
+import ipywidgets as widgets
+
+
+
+
+The error indicates that Microsoft Visual C++ Build Tools are required to build the scikit-learn package because it contains C/C++ extensions. Here’s how you can resolve the issue:
+
+Steps to Resolve
+1. Install Microsoft C++ Build Tools
+Download and install Microsoft Visual C++ Build Tools from the official website: Visual C++ Build Tools.
+During installation, ensure the following components are selected:
+Desktop development with C++
+MSVC v142 - VS 2019 C++ x64/x86 build tools
+Windows 10 SDK
+2. Ensure pip and setuptools are Updated
+Run the following commands to update pip, setuptools, and wheel:
+
+bash
+Copy code
+pip install --upgrade pip setuptools wheel
+3. Install Precompiled Binary (Wheel)
+To avoid the need to build from source, install the precompiled wheel of scikit-learn:
+
+bash
+Copy code
+pip install --only-binary :all: scikit-learn
+4. Alternative: Use Conda (If Available)
+If you have conda installed (via Anaconda or Miniconda), install scikit-learn using conda instead of pip, as it provides precompiled binaries:
+
+bash
+Copy code
+conda install scikit-learn
+5. Check Python Version
+Ensure your Python version is supported. As of now, some libraries may not fully support Python 3.12. Consider using Python 3.10 or 3.11 if you encounter persistent issues.
+
+6. Verify Installation
+After installation, verify that scikit-learn is correctly installed:
+
+bash
+Copy code
+python -c "import sklearn; print(sklearn.__version__)"
+If you continue to face issues, consider downgrading to an earlier version of Python (e.g., Python 3.10) and reinstalling the package in a fresh virtual environment. Let me know how it goes!
